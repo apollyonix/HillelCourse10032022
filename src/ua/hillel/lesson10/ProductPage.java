@@ -8,10 +8,19 @@ import java.util.logging.Logger;
  */
 
 public class ProductPage {
-  private final static Logger LOGGER = Logger.getLogger(ProductPage.class.getName());
+//  private static final Logger LOGGER = Logger.getLogger(ProductPage.class.getName());
+
+  private static final MyLogger MY_LOGGER = new MyLogger();
 
   public void setProductStatus(int status) {
-    LOGGER.log(Level.INFO, "Setting status " + status);
+
+    if (status > 0) {
+      MY_LOGGER.debug("Setting status " + status);
+    } else {
+      MY_LOGGER.log(MyLogger.LogLevel.WARN, "Cannot set product status");
+      throw new IllegalArgumentException("status cannot be less 0");
+    }
+
 
 
 
