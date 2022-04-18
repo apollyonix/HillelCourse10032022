@@ -13,5 +13,17 @@ public class MainClass {
 
 //    int index = new Random().nextInt(6);
 //    ConfigUtil.getPropValueFromArray(index);
+
+    long currentTime = System.currentTimeMillis();
+    int attempt = 0;
+    while (true) {
+      if (++attempt > 20) {
+        throw new Exception("max attempts reached");
+      }
+      //pro
+    }
+
   }
+
+
 }
