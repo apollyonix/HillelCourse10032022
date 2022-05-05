@@ -14,6 +14,7 @@
         <fakerVersion>1.0.2</fakerVersion>
         <testNgVersion>7.5</testNgVersion>
         <seleniumVersion>4.1.4</seleniumVersion>
+        <wdManager>5.1.1</wdManager>
     </properties>
 
     <dependencies>
@@ -33,56 +34,35 @@
             <artifactId>selenium-java</artifactId>
             <version>${seleniumVersion}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${wdManager}</version>
+        </dependency>
+
+
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M6</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <url>http://site.dev</url>
+                        <browser>${browser}</browser>
+                    </systemPropertyVariables>
+                    <suiteXmlFiles>
+                        <!--                                <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/orders.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/auth.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M6</version>
-                        <configuration>
-                            <systemPropertyVariables>
-                                <url>http://site.dev</url>
-                                <browser>${browser}</browser>
-                            </systemPropertyVariables>
-                            <!--                    <suiteXmlFiles>-->
-                            <!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
-                            <!--                    </suiteXmlFiles>-->
-                        </configuration>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>stage</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M6</version>
-                        <configuration>
-                            <systemPropertyVariables>
-                                <url>http://stage.dev</url>
-                                <browser>${browser}</browser>
-                            </systemPropertyVariables>
-                            <!--                    <suiteXmlFiles>-->
-                            <!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
-                            <!--                    </suiteXmlFiles>-->
-                        </configuration>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
-
+        </plugins>
+    </build>
 
 </project>
