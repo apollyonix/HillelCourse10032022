@@ -2,35 +2,30 @@ package ua.hillel.tests.wdTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 /**
  * @author Maxim Karpenko mkarpenko@modeln.com
  */
 
-public class WdTest {
+public class WebElTest {
   @Test
-  public void wdTest() {
+  public void webElTest() {
     WebDriverManager.chromedriver().setup();
-//    WebDriverManager.firefoxdriver().setup();
 
     WebDriver driver = new ChromeDriver();
-    driver.manage().window().maximize();
+    driver.get("https://the-internet.herokuapp.com/challenging_dom");
 
+    List<WebElement> elList = driver.findElements(By.xpath("//table//tr1"));
+    WebElement el1 = driver.findElement(By.xpath("//table//tr1"));
 
-
-    driver.get("https://google.com");
-
-    WebElement element = driver.findElement(By.id("div[id='snippets']"));
-
-    element.sendKeys("text" + Keys.TAB);
-
-    System.out.println(driver.getTitle());
+    Assert.assertTrue(driver.getCurrentUrl().contains("delete"));
 
     driver.quit();
   }
