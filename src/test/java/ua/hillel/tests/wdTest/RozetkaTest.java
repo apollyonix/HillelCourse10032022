@@ -7,10 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 /**
@@ -76,14 +80,24 @@ public class RozetkaTest {
   }
 
   private void setFilter(String id) {
-    WebElement link = driver.findElement(By.xpath("//aside//a[contains(text(),'" + id + "')]/.."));
-    link.click();
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {}
+    WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    WebElement link = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//aside//a[contains(text(),'" + id + "')]/..")));
+    webDriverWait.until(ExpectedConditions.elementToBeClickable(link)).click();
+    webDriverWait.until(pageIsReady());
   }
 
 
+
+  private ExpectedCondition<Boolean> pageIsReady() {
+    return new ExpectedCondition<Boolean>() {
+      @Override
+      public Boolean apply(WebDriver webDriver) {
+        WebElement main = driver.findElement(By.xpath("//main"));
+        return !main.getAttribute("class").contains("preloader_type_element");
+      }
+    };
+  }
 
 
 }
