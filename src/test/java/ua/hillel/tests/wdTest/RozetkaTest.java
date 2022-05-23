@@ -51,7 +51,6 @@ public class RozetkaTest {
     actions.perform();
 
 
-
     setFilter("Rozetka");
     setFilter("ASUS");
     setFilter("GeForce RTX 3090");
@@ -86,7 +85,6 @@ public class RozetkaTest {
     webDriverWait.until(ExpectedConditions.elementToBeClickable(link)).click();
     webDriverWait.until(pageIsReady());
   }
-
 
 
   private ExpectedCondition<Boolean> pageIsReady() {
