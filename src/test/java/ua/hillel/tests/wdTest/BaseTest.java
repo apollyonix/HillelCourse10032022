@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import ua.hillel.pageObjects.MainPage;
+import ua.hillel.patterns.DriverHolder;
 
 /**
  * @author Maxim Karpenko mkarpenko@modeln.com
@@ -19,6 +20,8 @@ public class BaseTest {
     WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
     driver.manage().window().maximize();
+
+    DriverHolder.setDriver(driver);
   }
 
   @AfterClass
@@ -28,6 +31,6 @@ public class BaseTest {
 
   public MainPage openApp() {
     driver.get("https://the-internet.herokuapp.com");
-    return new MainPage(driver);
+    return new MainPage();
   }
 }

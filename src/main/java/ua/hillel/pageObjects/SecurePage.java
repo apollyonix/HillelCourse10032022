@@ -12,12 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SecurePage extends BasePage {
 
   public SecurePage(WebDriver driver) {
-    super(driver);
   }
 
   public LoginPage logout() {
     driver.findElement(By.cssSelector("a.button,secondary.radius")).click();
-    return new LoginPage(driver);
+    return new LoginPage();
   }
 
   public String getPageTitle() {

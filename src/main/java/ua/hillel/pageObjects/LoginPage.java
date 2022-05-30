@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author Maxim Karpenko mkarpenko@modeln.com
@@ -29,8 +30,7 @@ public class LoginPage extends BasePage {
   @FindBy(css = ".flash.error")
   private WebElement errorAlert;
 
-  public LoginPage(WebDriver driver) {
-    super(driver);
+  public LoginPage() {
     PageFactory.initElements(driver, this);
   }
 
@@ -51,7 +51,7 @@ public class LoginPage extends BasePage {
 
   public LoginPage clickLoginWithInvalidCreds() {
     clickElement(loginButton);
-    return new LoginPage(driver);
+    return new LoginPage();
   }
 
   public SecurePage login(String username, String password) {

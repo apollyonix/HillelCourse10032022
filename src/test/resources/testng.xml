@@ -18,9 +18,13 @@
 <!--    </test>-->
 
     <test name="Parallel test" parallel="methods" thread-count="4">
-        <classes>
-            <class name="ua.hillel.tests.testNg.ParallelTest"/>
-        </classes>
+<!--        <classes>-->
+<!--            <class name="ua.hillel.tests.testNg.ParallelTest"/>-->
+<!--            <class name="ua.hillel.tests.wdTest.LoginTestPO"/>-->
+<!--        </classes>-->
+        <packages>
+            <package name="ua.hillel.tests.wdTest"/>
+        </packages>
     </test>
 
 
