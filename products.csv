@@ -1,0 +1,7 @@
+id,productname,category,price,discount,isactive,createddate
+100,IPhone,Smartphones,1100,0,true,05/30/2022
+101,IPad,Tablets,1300,0,true,05/30/2022
+103,Samsung Galaxy,Smartphones,990,0,true,05/30/2022
+107,Samsung Galaxy Tab,Tablets,790,0,true,05/30/2022
+112,IPhone Pro,Smartphones,1300,0,true,05/30/2022
+115,Lenovo Tab,Tablets,490,0,true,05/30/2022
