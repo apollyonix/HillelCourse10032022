@@ -87,9 +87,9 @@
                         <browser>${browser}</browser>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <!--                                <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
-                        <suiteXmlFile>src/test/resources/orders.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/auth.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/regression.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/resources/orders.xml</suiteXmlFile>-->
+<!--                        <suiteXmlFile>src/test/resources/auth.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
