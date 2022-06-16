@@ -1,13 +1,7 @@
 package ua.hillel.tests.wdTest;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.hillel.pageObjects.MainPage;
 import ua.hillel.pageObjects.SecurePage;
 
 
