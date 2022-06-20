@@ -1,7 +1,6 @@
 package ua.hillel.pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 /**
  * @author Maxim Karpenko mkarpenko@modeln.com

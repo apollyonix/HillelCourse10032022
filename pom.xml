@@ -16,6 +16,7 @@
         <seleniumVersion>4.1.4</seleniumVersion>
         <wdManager>5.1.1</wdManager>
         <selenideVersion>6.5.1</selenideVersion>
+        <extentRepotrVersion>1.0.7</extentRepotrVersion>
     </properties>
 
     <dependencies>
@@ -71,6 +72,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- REPORTS -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports-testng-adapter</artifactId>
+            <version>${extentRepotrVersion}</version>
+        </dependency>
 
 
     </dependencies>

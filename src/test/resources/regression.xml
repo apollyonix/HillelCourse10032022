@@ -4,6 +4,7 @@
     <test name="Remote test">
         <classes>
             <class name="ua.hillel.tests.wdTest.LoginTestPO"/>
+            <class name="ua.hillel.tests.wdTest.LoginTestPO_Invalid"/>
         </classes>
     </test>
 </suite>

@@ -8,9 +8,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import ua.hillel.pageObjects.MainPage;
 import ua.hillel.patterns.DriverHolder;
+import ua.hillel.tests.listeners.CustomExtentReportListener;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -23,7 +25,13 @@ import java.util.Map;
  * @author Maxim Karpenko mkarpenko@modeln.com
  */
 
+@Listeners(CustomExtentReportListener.class)
 public class BaseTest {
+  static {
+    System.setProperty("extent.reporter.html.start", "true");
+    System.setProperty("extent.reporter.html.out", "target/extentReport/ExtentHtml.html");
+  }
+
   public WebDriver driver;
 
   @BeforeClass

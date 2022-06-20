@@ -1,11 +1,8 @@
 package ua.hillel.pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author Maxim Karpenko mkarpenko@modeln.com
@@ -13,10 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
 
-
-//  private final By byUsername = By.id("username");
-//  private final By byPassword = By.id("password");
-//  private final By byLoginButton = By.cssSelector("button[type='submit']");
 
   @FindBy(id = "username")
   private WebElement usernameInput;
